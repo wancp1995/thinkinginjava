@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+</head>
+<body>
+Thymeleaf 模板引擎
+<h1 th:text="${name}">Hello Thymeleaf</h1>
+<h1 th:text="${user.name}">Hello Thymeleaf</h1>
+<span th:text="'Welcome, ' + ${user.name} + '!'"></span>
+<span th:text="|Welcome, ${user.name}|"></span>
+<br>
+<a th:if="${flag == 'yes'}" th:href="@{http://www.a.com}">a.home</a>
+<a th:if="${flag != 'no'}" th:href="@{http://www..bcom}">b.home</a>
+<br>
+<div>
+    <div th:switch="${status}">
+        <p th:case="todo">未开始</p>
+        <p th:case="doing">进行中</p>
+        <p th:case="done">完成</p>
+        <p th:case="*">状态错误</p>
+    </div>
+</div>
+<div>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>密码</th>
+            <th>变量: index</th>
+            <th>变量: count</th>
+            <th>变量: size</th>
+            <th>变量: even</th>
+            <th>变量: odd</th>
+            <th>变量: first</th>
+            <th>变量: last</th>
+        </tr>
+        <tr th:each="user,stat : ${list}">
+            <td th:text="${user.name}">name</td>
+            <td th:text="${user.age}">age</td>
+            <td th:text="${user.password}">password</td>
+            <td th:text="${stat.index}"></td>
+            <td th:text="${stat.count}"></td>
+            <td th:text="${stat.size}"></td>
+            <td th:text="${stat.even}"></td>
+            <td th:text="${stat.odd}"></td>
+            <td th:text="${stat.first}"></td>
+            <td th:text="${stat.last}"></td>
+        </tr>
+    </table>
+</div>
+<br>
+<div th:inline="text">
+    <p>Hello, [[${user.name}]]!</p>
+</div>
+</body>
+</html>

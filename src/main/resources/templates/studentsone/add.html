@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>添加学生</title>
+</head>
+<body>
+<h1>添加学生</h1>
+<form action="#" th:action="@{/studentsone/add}" th:object="${student}" method="post">
+    <label>姓名:</label>
+    <input type="text" th:field="*{name}"/><br/>
+    <label>年龄:</label>
+    <input type="number" th:field="*{age}"/><br/>
+    <label>性别:</label>
+    <input type="number" th:field="*{sex}"/><br/>
+    <button type="submit">提交</button>
+</form>
+<a href="/studentsone/">返回</a>
+</body>
+</html>

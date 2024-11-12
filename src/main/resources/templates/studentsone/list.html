@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>学生信息管理</title>
+</head>
+<body>
+<h1>学生信息</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.age}"></td>
+        <td th:text="${student.sex}"></td>
+        <td>
+            <a th:href="@{/studentsone/edit/{id}(id=${student.id})}">编辑</a> |
+            <a th:href="@{/studentsone/delete/{id}(id=${student.id})}">删除</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="/studentsone/add">添加学生</a>
+</body>
+</html>
